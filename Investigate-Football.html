@@ -11929,7 +11929,7 @@ TABLE `Team_Attributes` :
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[287]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import pkgs</span>
@@ -11968,7 +11968,7 @@ TABLE `Team_Attributes` :
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[288]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
@@ -12012,7 +12012,7 @@ TABLE `Team_Attributes` :
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[289]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
@@ -12063,7 +12063,7 @@ dict_keys([&#39;Player_Attributes&#39;, &#39;Player&#39;, &#39;Match&#39;, &#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[290]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
@@ -12085,37 +12085,911 @@ dict_keys([&#39;Player_Attributes&#39;, &#39;Player&#39;, &#39;Match&#39;, &#39;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[291]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
 <span class="c1"># 整理数据</span>
 <span class="c1"># Check Player_Attributes values</span>
 <span class="c1"># 将overall_rating评分为空的行删除(总体评分为空, 视为未参加比赛)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+<span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[131]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>player_fifa_api_id</th>
+      <th>player_api_id</th>
+      <th>date</th>
+      <th>overall_rating</th>
+      <th>potential</th>
+      <th>preferred_foot</th>
+      <th>attacking_work_rate</th>
+      <th>defensive_work_rate</th>
+      <th>crossing</th>
+      <th>...</th>
+      <th>vision</th>
+      <th>penalties</th>
+      <th>marking</th>
+      <th>standing_tackle</th>
+      <th>sliding_tackle</th>
+      <th>gk_diving</th>
+      <th>gk_handling</th>
+      <th>gk_kicking</th>
+      <th>gk_positioning</th>
+      <th>gk_reflexes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>483</th>
+      <td>484</td>
+      <td>33022</td>
+      <td>31684</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>983</th>
+      <td>984</td>
+      <td>111085</td>
+      <td>29904</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1752</th>
+      <td>1753</td>
+      <td>165740</td>
+      <td>24159</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2089</th>
+      <td>2090</td>
+      <td>176941</td>
+      <td>31916</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2482</th>
+      <td>2483</td>
+      <td>177615</td>
+      <td>37249</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理前的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="n">df_player_attributes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> \
                               <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理后的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+</pre></div>
 
-<span class="c1"># 如果volleys为空, 则置为0(将没有抽射的球员属性置为零)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>处理前的空值计数 : 836
+处理后的空值计数 : 0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 如果volleys为空, 则置为0(将没有抽射的球员属性置为零)</span>
+<span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[133]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>player_fifa_api_id</th>
+      <th>player_api_id</th>
+      <th>date</th>
+      <th>overall_rating</th>
+      <th>potential</th>
+      <th>preferred_foot</th>
+      <th>attacking_work_rate</th>
+      <th>defensive_work_rate</th>
+      <th>crossing</th>
+      <th>...</th>
+      <th>vision</th>
+      <th>penalties</th>
+      <th>marking</th>
+      <th>standing_tackle</th>
+      <th>sliding_tackle</th>
+      <th>gk_diving</th>
+      <th>gk_handling</th>
+      <th>gk_kicking</th>
+      <th>gk_positioning</th>
+      <th>gk_reflexes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>446</th>
+      <td>447</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2010-02-22 00:00:00</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>447</th>
+      <td>448</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2009-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>449</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2008-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>449</th>
+      <td>450</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2007-08-30 00:00:00</td>
+      <td>70.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>451</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>70.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>72.0</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>7.0</td>
+      <td>62.0</td>
+      <td>12.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理前的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理后的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;volleys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+</pre></div>
 
-<span class="c1"># 如果curve为空, 则置为0(将没有盘带的球员属性值为零)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>处理前的空值计数 : 1877
+处理后的空值计数 : 0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 如果curve为空, 则置为0(将没有盘带的球员属性值为零)</span>
+<span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[135]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>player_fifa_api_id</th>
+      <th>player_api_id</th>
+      <th>date</th>
+      <th>overall_rating</th>
+      <th>potential</th>
+      <th>preferred_foot</th>
+      <th>attacking_work_rate</th>
+      <th>defensive_work_rate</th>
+      <th>crossing</th>
+      <th>...</th>
+      <th>vision</th>
+      <th>penalties</th>
+      <th>marking</th>
+      <th>standing_tackle</th>
+      <th>sliding_tackle</th>
+      <th>gk_diving</th>
+      <th>gk_handling</th>
+      <th>gk_kicking</th>
+      <th>gk_positioning</th>
+      <th>gk_reflexes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>446</th>
+      <td>447</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2010-02-22 00:00:00</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>447</th>
+      <td>448</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2009-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>449</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2008-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>449</th>
+      <td>450</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2007-08-30 00:00:00</td>
+      <td>70.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>451</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>70.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>72.0</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>7.0</td>
+      <td>62.0</td>
+      <td>12.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理前的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理后的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;curve&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+</pre></div>
 
-<span class="c1"># 将agility为空的行删除(灵活评分为空, 视为未参加比赛)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>处理前的空值计数 : 1877
+处理后的空值计数 : 0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 将agility为空的行删除(灵活评分为空, 视为未参加比赛)</span>
+<span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[137]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>player_fifa_api_id</th>
+      <th>player_api_id</th>
+      <th>date</th>
+      <th>overall_rating</th>
+      <th>potential</th>
+      <th>preferred_foot</th>
+      <th>attacking_work_rate</th>
+      <th>defensive_work_rate</th>
+      <th>crossing</th>
+      <th>...</th>
+      <th>vision</th>
+      <th>penalties</th>
+      <th>marking</th>
+      <th>standing_tackle</th>
+      <th>sliding_tackle</th>
+      <th>gk_diving</th>
+      <th>gk_handling</th>
+      <th>gk_kicking</th>
+      <th>gk_positioning</th>
+      <th>gk_reflexes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>446</th>
+      <td>447</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2010-02-22 00:00:00</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>447</th>
+      <td>448</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2009-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>449</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2008-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>449</th>
+      <td>450</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2007-08-30 00:00:00</td>
+      <td>70.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>52.0</td>
+      <td>50.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>451</td>
+      <td>52782</td>
+      <td>38423</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>70.0</td>
+      <td>69.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>60.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>47.0</td>
+      <td>72.0</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>7.0</td>
+      <td>62.0</td>
+      <td>12.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理前的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="n">df_player_attributes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> \
                               <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理后的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;agility&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="c1">###############################################################</span>
 </pre></div>
 
@@ -12133,158 +13007,8 @@ dict_keys([&#39;Player_Attributes&#39;, &#39;Player&#39;, &#39;Match&#39;, &#39;
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>        id  player_fifa_api_id  player_api_id                 date  \
-483    484               33022          31684  2007-02-22 00:00:00   
-983    984              111085          29904  2007-02-22 00:00:00   
-1752  1753              165740          24159  2007-02-22 00:00:00   
-2089  2090              176941          31916  2007-02-22 00:00:00   
-2482  2483              177615          37249  2007-02-22 00:00:00   
-
-      overall_rating  potential preferred_foot attacking_work_rate  \
-483              NaN        NaN           None                None   
-983              NaN        NaN           None                None   
-1752             NaN        NaN           None                None   
-2089             NaN        NaN           None                None   
-2482             NaN        NaN           None                None   
-
-     defensive_work_rate  crossing     ...       vision  penalties  marking  \
-483                 None       NaN     ...          NaN        NaN      NaN   
-983                 None       NaN     ...          NaN        NaN      NaN   
-1752                None       NaN     ...          NaN        NaN      NaN   
-2089                None       NaN     ...          NaN        NaN      NaN   
-2482                None       NaN     ...          NaN        NaN      NaN   
-
-      standing_tackle  sliding_tackle  gk_diving  gk_handling  gk_kicking  \
-483               NaN             NaN        NaN          NaN         NaN   
-983               NaN             NaN        NaN          NaN         NaN   
-1752              NaN             NaN        NaN          NaN         NaN   
-2089              NaN             NaN        NaN          NaN         NaN   
-2482              NaN             NaN        NaN          NaN         NaN   
-
-      gk_positioning  gk_reflexes  
-483              NaN          NaN  
-983              NaN          NaN  
-1752             NaN          NaN  
-2089             NaN          NaN  
-2482             NaN          NaN  
-
-[5 rows x 42 columns]
-before : 836
-after : 0
-      id  player_fifa_api_id  player_api_id                 date  \
-446  447               52782          38423  2010-02-22 00:00:00   
-447  448               52782          38423  2009-08-30 00:00:00   
-448  449               52782          38423  2008-08-30 00:00:00   
-449  450               52782          38423  2007-08-30 00:00:00   
-450  451               52782          38423  2007-02-22 00:00:00   
-
-     overall_rating  potential preferred_foot attacking_work_rate  \
-446            68.0       70.0          right                None   
-447            68.0       70.0          right                None   
-448            68.0       69.0          right                None   
-449            70.0       69.0          right                None   
-450            70.0       69.0          right                None   
-
-    defensive_work_rate  crossing     ...       vision  penalties  marking  \
-446                  _0      60.0     ...          NaN       47.0     52.0   
-447                  _0      60.0     ...          NaN       47.0     52.0   
-448                  _0      60.0     ...          NaN       47.0     52.0   
-449                  _0      60.0     ...          NaN       47.0     52.0   
-450                  _0      60.0     ...          NaN       47.0     72.0   
-
-     standing_tackle  sliding_tackle  gk_diving  gk_handling  gk_kicking  \
-446             50.0             NaN        7.0         20.0        62.0   
-447             50.0             NaN        7.0         20.0        62.0   
-448             50.0             NaN        7.0         20.0        62.0   
-449             50.0             NaN        7.0         20.0        62.0   
-450             70.0             NaN        7.0          7.0        62.0   
-
-     gk_positioning  gk_reflexes  
-446            20.0         20.0  
-447            20.0         20.0  
-448            20.0         20.0  
-449            20.0         20.0  
-450            12.0          5.0  
-
-[5 rows x 42 columns]
-before : 1877
-after : 0
-      id  player_fifa_api_id  player_api_id                 date  \
-446  447               52782          38423  2010-02-22 00:00:00   
-447  448               52782          38423  2009-08-30 00:00:00   
-448  449               52782          38423  2008-08-30 00:00:00   
-449  450               52782          38423  2007-08-30 00:00:00   
-450  451               52782          38423  2007-02-22 00:00:00   
-
-     overall_rating  potential preferred_foot attacking_work_rate  \
-446            68.0       70.0          right                None   
-447            68.0       70.0          right                None   
-448            68.0       69.0          right                None   
-449            70.0       69.0          right                None   
-450            70.0       69.0          right                None   
-
-    defensive_work_rate  crossing     ...       vision  penalties  marking  \
-446                  _0      60.0     ...          NaN       47.0     52.0   
-447                  _0      60.0     ...          NaN       47.0     52.0   
-448                  _0      60.0     ...          NaN       47.0     52.0   
-449                  _0      60.0     ...          NaN       47.0     52.0   
-450                  _0      60.0     ...          NaN       47.0     72.0   
-
-     standing_tackle  sliding_tackle  gk_diving  gk_handling  gk_kicking  \
-446             50.0             NaN        7.0         20.0        62.0   
-447             50.0             NaN        7.0         20.0        62.0   
-448             50.0             NaN        7.0         20.0        62.0   
-449             50.0             NaN        7.0         20.0        62.0   
-450             70.0             NaN        7.0          7.0        62.0   
-
-     gk_positioning  gk_reflexes  
-446            20.0         20.0  
-447            20.0         20.0  
-448            20.0         20.0  
-449            20.0         20.0  
-450            12.0          5.0  
-
-[5 rows x 42 columns]
-before : 1877
-after : 0
-      id  player_fifa_api_id  player_api_id                 date  \
-446  447               52782          38423  2010-02-22 00:00:00   
-447  448               52782          38423  2009-08-30 00:00:00   
-448  449               52782          38423  2008-08-30 00:00:00   
-449  450               52782          38423  2007-08-30 00:00:00   
-450  451               52782          38423  2007-02-22 00:00:00   
-
-     overall_rating  potential preferred_foot attacking_work_rate  \
-446            68.0       70.0          right                None   
-447            68.0       70.0          right                None   
-448            68.0       69.0          right                None   
-449            70.0       69.0          right                None   
-450            70.0       69.0          right                None   
-
-    defensive_work_rate  crossing     ...       vision  penalties  marking  \
-446                  _0      60.0     ...          NaN       47.0     52.0   
-447                  _0      60.0     ...          NaN       47.0     52.0   
-448                  _0      60.0     ...          NaN       47.0     52.0   
-449                  _0      60.0     ...          NaN       47.0     52.0   
-450                  _0      60.0     ...          NaN       47.0     72.0   
-
-     standing_tackle  sliding_tackle  gk_diving  gk_handling  gk_kicking  \
-446             50.0             NaN        7.0         20.0        62.0   
-447             50.0             NaN        7.0         20.0        62.0   
-448             50.0             NaN        7.0         20.0        62.0   
-449             50.0             NaN        7.0         20.0        62.0   
-450             70.0             NaN        7.0          7.0        62.0   
-
-     gk_positioning  gk_reflexes  
-446            20.0         20.0  
-447            20.0         20.0  
-448            20.0         20.0  
-449            20.0         20.0  
-450            12.0          5.0  
-
-[5 rows x 42 columns]
-before : 1877
-after : 0
+<pre>处理前的空值计数 : 1877
+处理后的空值计数 : 0
 </pre>
 </div>
 </div>
@@ -12295,7 +13019,7 @@ after : 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[292]:</div>
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
@@ -12306,11 +13030,10 @@ after : 0
 <span class="n">player_list</span> <span class="o">=</span> <span class="n">home_player_list</span> <span class="o">+</span> <span class="n">away_player_list</span>
 <span class="c1"># print(player_list)</span>
 <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">player_list</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_match</span><span class="p">[</span><span class="n">player</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> 处理前的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">df_match</span><span class="p">[</span><span class="n">player</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
     <span class="n">df_match</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_match</span><span class="p">[</span> <span class="n">df_match</span><span class="p">[</span><span class="n">player</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> \
                                   <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_match</span><span class="p">[</span><span class="n">player</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
-
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> 处理后的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">df_match</span><span class="p">[</span><span class="n">player</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="c1">###############################################################</span>
 </pre></div>
 
@@ -12328,50 +13051,50 @@ after : 0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>before : 1224
-after : 0
-before : 380
-after : 0
-before : 273
-after : 0
-before : 249
-after : 0
-before : 180
-after : 0
-before : 173
-after : 0
-before : 145
-after : 0
-before : 149
-after : 0
-before : 106
-after : 0
-before : 202
-after : 0
-before : 190
-after : 0
-before : 109
-after : 0
-before : 120
-after : 0
-before : 125
-after : 0
-before : 126
-after : 0
-before : 106
-after : 0
-before : 101
-after : 0
-before : 103
-after : 0
-before : 116
-after : 0
-before : 124
-after : 0
-before : 139
-after : 0
-before : 165
-after : 0
+<pre>home_player_1 处理前的空值计数 : 1224
+home_player_1 处理后的空值计数 : 0
+home_player_2 处理前的空值计数 : 380
+home_player_2 处理后的空值计数 : 0
+home_player_3 处理前的空值计数 : 273
+home_player_3 处理后的空值计数 : 0
+home_player_4 处理前的空值计数 : 249
+home_player_4 处理后的空值计数 : 0
+home_player_5 处理前的空值计数 : 180
+home_player_5 处理后的空值计数 : 0
+home_player_6 处理前的空值计数 : 173
+home_player_6 处理后的空值计数 : 0
+home_player_7 处理前的空值计数 : 145
+home_player_7 处理后的空值计数 : 0
+home_player_8 处理前的空值计数 : 149
+home_player_8 处理后的空值计数 : 0
+home_player_9 处理前的空值计数 : 106
+home_player_9 处理后的空值计数 : 0
+home_player_10 处理前的空值计数 : 202
+home_player_10 处理后的空值计数 : 0
+home_player_11 处理前的空值计数 : 190
+home_player_11 处理后的空值计数 : 0
+away_player_1 处理前的空值计数 : 109
+away_player_1 处理后的空值计数 : 0
+away_player_2 处理前的空值计数 : 120
+away_player_2 处理后的空值计数 : 0
+away_player_3 处理前的空值计数 : 125
+away_player_3 处理后的空值计数 : 0
+away_player_4 处理前的空值计数 : 126
+away_player_4 处理后的空值计数 : 0
+away_player_5 处理前的空值计数 : 106
+away_player_5 处理后的空值计数 : 0
+away_player_6 处理前的空值计数 : 101
+away_player_6 处理后的空值计数 : 0
+away_player_7 处理前的空值计数 : 103
+away_player_7 处理后的空值计数 : 0
+away_player_8 处理前的空值计数 : 116
+away_player_8 处理后的空值计数 : 0
+away_player_9 处理前的空值计数 : 124
+away_player_9 处理后的空值计数 : 0
+away_player_10 处理前的空值计数 : 139
+away_player_10 处理后的空值计数 : 0
+away_player_11 处理前的空值计数 : 165
+away_player_11 处理后的空值计数 : 0
 </pre>
 </div>
 </div>
@@ -12382,18 +13105,213 @@ after : 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[293]:</div>
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
 <span class="c1"># Check Team_Attributes values</span>
 <span class="c1"># buildUpPlayDribbling为空时视为数据无效(参加比赛的队伍不可能没有盘带就比赛结束)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_team_attributes</span><span class="p">[</span> <span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
+<span class="n">df_team_attributes</span><span class="p">[</span> <span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[140]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>team_fifa_api_id</th>
+      <th>team_api_id</th>
+      <th>date</th>
+      <th>buildUpPlaySpeed</th>
+      <th>buildUpPlaySpeedClass</th>
+      <th>buildUpPlayDribbling</th>
+      <th>buildUpPlayDribblingClass</th>
+      <th>buildUpPlayPassing</th>
+      <th>buildUpPlayPassingClass</th>
+      <th>...</th>
+      <th>chanceCreationShooting</th>
+      <th>chanceCreationShootingClass</th>
+      <th>chanceCreationPositioningClass</th>
+      <th>defencePressure</th>
+      <th>defencePressureClass</th>
+      <th>defenceAggression</th>
+      <th>defenceAggressionClass</th>
+      <th>defenceTeamWidth</th>
+      <th>defenceTeamWidthClass</th>
+      <th>defenceDefenderLineClass</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>434</td>
+      <td>9930</td>
+      <td>2010-02-22 00:00:00</td>
+      <td>60</td>
+      <td>Balanced</td>
+      <td>NaN</td>
+      <td>Little</td>
+      <td>50</td>
+      <td>Mixed</td>
+      <td>...</td>
+      <td>55</td>
+      <td>Normal</td>
+      <td>Organised</td>
+      <td>50</td>
+      <td>Medium</td>
+      <td>55</td>
+      <td>Press</td>
+      <td>45</td>
+      <td>Normal</td>
+      <td>Cover</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>77</td>
+      <td>8485</td>
+      <td>2010-02-22 00:00:00</td>
+      <td>70</td>
+      <td>Fast</td>
+      <td>NaN</td>
+      <td>Little</td>
+      <td>70</td>
+      <td>Long</td>
+      <td>...</td>
+      <td>70</td>
+      <td>Lots</td>
+      <td>Organised</td>
+      <td>60</td>
+      <td>Medium</td>
+      <td>70</td>
+      <td>Double</td>
+      <td>70</td>
+      <td>Wide</td>
+      <td>Cover</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>77</td>
+      <td>8485</td>
+      <td>2011-02-22 00:00:00</td>
+      <td>47</td>
+      <td>Balanced</td>
+      <td>NaN</td>
+      <td>Little</td>
+      <td>52</td>
+      <td>Mixed</td>
+      <td>...</td>
+      <td>52</td>
+      <td>Normal</td>
+      <td>Organised</td>
+      <td>47</td>
+      <td>Medium</td>
+      <td>47</td>
+      <td>Press</td>
+      <td>52</td>
+      <td>Normal</td>
+      <td>Cover</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>77</td>
+      <td>8485</td>
+      <td>2012-02-22 00:00:00</td>
+      <td>58</td>
+      <td>Balanced</td>
+      <td>NaN</td>
+      <td>Little</td>
+      <td>62</td>
+      <td>Mixed</td>
+      <td>...</td>
+      <td>55</td>
+      <td>Normal</td>
+      <td>Organised</td>
+      <td>40</td>
+      <td>Medium</td>
+      <td>40</td>
+      <td>Press</td>
+      <td>60</td>
+      <td>Normal</td>
+      <td>Cover</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>77</td>
+      <td>8485</td>
+      <td>2013-09-20 00:00:00</td>
+      <td>62</td>
+      <td>Balanced</td>
+      <td>NaN</td>
+      <td>Little</td>
+      <td>45</td>
+      <td>Mixed</td>
+      <td>...</td>
+      <td>55</td>
+      <td>Normal</td>
+      <td>Organised</td>
+      <td>42</td>
+      <td>Medium</td>
+      <td>42</td>
+      <td>Press</td>
+      <td>60</td>
+      <td>Normal</td>
+      <td>Cover</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理前的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="n">df_team_attributes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_team_attributes</span><span class="p">[</span> <span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> \
                               <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理后的空值计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_team_attributes</span><span class="p">[</span><span class="s1">&#39;buildUpPlayDribbling&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">())))</span>
 <span class="c1">###############################################################</span>
 </pre></div>
 
@@ -12411,58 +13329,8 @@ after : 0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>   id  team_fifa_api_id  team_api_id                 date  buildUpPlaySpeed  \
-0   1               434         9930  2010-02-22 00:00:00                60   
-3   4                77         8485  2010-02-22 00:00:00                70   
-4   5                77         8485  2011-02-22 00:00:00                47   
-5   6                77         8485  2012-02-22 00:00:00                58   
-6   7                77         8485  2013-09-20 00:00:00                62   
-
-  buildUpPlaySpeedClass  buildUpPlayDribbling buildUpPlayDribblingClass  \
-0              Balanced                   NaN                    Little   
-3                  Fast                   NaN                    Little   
-4              Balanced                   NaN                    Little   
-5              Balanced                   NaN                    Little   
-6              Balanced                   NaN                    Little   
-
-   buildUpPlayPassing buildUpPlayPassingClass           ...             \
-0                  50                   Mixed           ...              
-3                  70                    Long           ...              
-4                  52                   Mixed           ...              
-5                  62                   Mixed           ...              
-6                  45                   Mixed           ...              
-
-  chanceCreationShooting  chanceCreationShootingClass  \
-0                     55                       Normal   
-3                     70                         Lots   
-4                     52                       Normal   
-5                     55                       Normal   
-6                     55                       Normal   
-
-  chanceCreationPositioningClass  defencePressure defencePressureClass  \
-0                      Organised               50               Medium   
-3                      Organised               60               Medium   
-4                      Organised               47               Medium   
-5                      Organised               40               Medium   
-6                      Organised               42               Medium   
-
-   defenceAggression defenceAggressionClass defenceTeamWidth  \
-0                 55                  Press               45   
-3                 70                 Double               70   
-4                 47                  Press               52   
-5                 40                  Press               60   
-6                 42                  Press               60   
-
-   defenceTeamWidthClass defenceDefenderLineClass  
-0                 Normal                    Cover  
-3                   Wide                    Cover  
-4                 Normal                    Cover  
-5                 Normal                    Cover  
-6                 Normal                    Cover  
-
-[5 rows x 25 columns]
-before : 969
-after : 0
+<pre>处理前的空值计数 : 969
+处理后的空值计数 : 0
 </pre>
 </div>
 </div>
@@ -12484,17 +13352,213 @@ after : 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[294]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
 <span class="c1"># 讨论数据结构和需要解决的任何问题之后，</span>
 <span class="c1">#   在本段的第二部分进行这些清理步骤。</span>
 <span class="c1"># Set defensive_work_rate = &#39;_0&#39; to 0(将defensive_work_rate = &#39;_0&#39;的数据修改为0)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span><span class="p">)))</span>
+<span class="n">df_player_attributes</span><span class="p">[</span> <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span> <span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[142]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>player_fifa_api_id</th>
+      <th>player_api_id</th>
+      <th>date</th>
+      <th>overall_rating</th>
+      <th>potential</th>
+      <th>preferred_foot</th>
+      <th>attacking_work_rate</th>
+      <th>defensive_work_rate</th>
+      <th>crossing</th>
+      <th>...</th>
+      <th>vision</th>
+      <th>penalties</th>
+      <th>marking</th>
+      <th>standing_tackle</th>
+      <th>sliding_tackle</th>
+      <th>gk_diving</th>
+      <th>gk_handling</th>
+      <th>gk_kicking</th>
+      <th>gk_positioning</th>
+      <th>gk_reflexes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>373</th>
+      <td>374</td>
+      <td>156626</td>
+      <td>46447</td>
+      <td>2010-08-30 00:00:00</td>
+      <td>64.0</td>
+      <td>71.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>41.0</td>
+      <td>...</td>
+      <td>61.0</td>
+      <td>39.0</td>
+      <td>62.0</td>
+      <td>61.0</td>
+      <td>57.0</td>
+      <td>15.0</td>
+      <td>14.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>374</th>
+      <td>375</td>
+      <td>156626</td>
+      <td>46447</td>
+      <td>2010-02-22 00:00:00</td>
+      <td>64.0</td>
+      <td>71.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>41.0</td>
+      <td>...</td>
+      <td>61.0</td>
+      <td>58.0</td>
+      <td>62.0</td>
+      <td>61.0</td>
+      <td>57.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+      <td>45.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>375</th>
+      <td>376</td>
+      <td>156626</td>
+      <td>46447</td>
+      <td>2008-08-30 00:00:00</td>
+      <td>66.0</td>
+      <td>71.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>41.0</td>
+      <td>...</td>
+      <td>61.0</td>
+      <td>58.0</td>
+      <td>67.0</td>
+      <td>61.0</td>
+      <td>57.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+      <td>45.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>377</td>
+      <td>156626</td>
+      <td>46447</td>
+      <td>2007-08-30 00:00:00</td>
+      <td>68.0</td>
+      <td>75.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>41.0</td>
+      <td>...</td>
+      <td>61.0</td>
+      <td>58.0</td>
+      <td>69.0</td>
+      <td>64.0</td>
+      <td>57.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+      <td>45.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>377</th>
+      <td>378</td>
+      <td>156626</td>
+      <td>46447</td>
+      <td>2007-02-22 00:00:00</td>
+      <td>66.0</td>
+      <td>65.0</td>
+      <td>right</td>
+      <td>None</td>
+      <td>_0</td>
+      <td>41.0</td>
+      <td>...</td>
+      <td>61.0</td>
+      <td>55.0</td>
+      <td>66.0</td>
+      <td>63.0</td>
+      <td>57.0</td>
+      <td>6.0</td>
+      <td>9.0</td>
+      <td>45.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理前的计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span><span class="p">)))</span>
 <span class="n">df_player_attributes</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;处理后的计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;defensive_work_rate&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_0&#39;</span><span class="p">)))</span>
 <span class="c1">###############################################################</span>
 </pre></div>
 
@@ -12512,44 +13576,8 @@ after : 0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>      id  player_fifa_api_id  player_api_id                 date  \
-373  374              156626          46447  2010-08-30 00:00:00   
-374  375              156626          46447  2010-02-22 00:00:00   
-375  376              156626          46447  2008-08-30 00:00:00   
-376  377              156626          46447  2007-08-30 00:00:00   
-377  378              156626          46447  2007-02-22 00:00:00   
-
-     overall_rating  potential preferred_foot attacking_work_rate  \
-373            64.0       71.0          right                None   
-374            64.0       71.0          right                None   
-375            66.0       71.0          right                None   
-376            68.0       75.0          right                None   
-377            66.0       65.0          right                None   
-
-    defensive_work_rate  crossing     ...       vision  penalties  marking  \
-373                  _0      41.0     ...         61.0       39.0     62.0   
-374                  _0      41.0     ...         61.0       58.0     62.0   
-375                  _0      41.0     ...         61.0       58.0     67.0   
-376                  _0      41.0     ...         61.0       58.0     69.0   
-377                  _0      41.0     ...         61.0       55.0     66.0   
-
-     standing_tackle  sliding_tackle  gk_diving  gk_handling  gk_kicking  \
-373             61.0            57.0       15.0         14.0        13.0   
-374             61.0            57.0        6.0         20.0        45.0   
-375             61.0            57.0        6.0         20.0        45.0   
-376             64.0            57.0        6.0         20.0        45.0   
-377             63.0            57.0        6.0          9.0        45.0   
-
-     gk_positioning  gk_reflexes  
-373            10.0         12.0  
-374            20.0         20.0  
-375            20.0         20.0  
-376            20.0         20.0  
-377            13.0         10.0  
-
-[5 rows x 42 columns]
-before : 911
-after : 0
+<pre>处理前的计数 : 911
+处理后的计数 : 0
 </pre>
 </div>
 </div>
@@ -12571,13 +13599,211 @@ after : 0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[295]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
 <span class="c1"># 找出2010/2011赛季评分最高的球员</span>
-<span class="c1"># Get all players for season 2010/2011</span>
+<span class="c1"># 获取2010/2011的比赛数据</span>
 <span class="n">df_match_2010to2011</span> <span class="o">=</span> <span class="n">df_match</span><span class="p">[</span> <span class="n">df_match</span><span class="p">[</span><span class="s1">&#39;season&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;2010/2011&#39;</span> <span class="p">]</span>
+<span class="n">df_match_2010to2011</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[144]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>country_id</th>
+      <th>league_id</th>
+      <th>season</th>
+      <th>stage</th>
+      <th>date</th>
+      <th>match_api_id</th>
+      <th>home_team_api_id</th>
+      <th>away_team_api_id</th>
+      <th>home_team_goal</th>
+      <th>...</th>
+      <th>SJA</th>
+      <th>VCH</th>
+      <th>VCD</th>
+      <th>VCA</th>
+      <th>GBH</th>
+      <th>GBD</th>
+      <th>GBA</th>
+      <th>BSH</th>
+      <th>BSD</th>
+      <th>BSA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>517</th>
+      <td>518</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2010/2011</td>
+      <td>1</td>
+      <td>2010-07-31 00:00:00</td>
+      <td>838468</td>
+      <td>8571</td>
+      <td>8342</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1.95</td>
+      <td>3.60</td>
+      <td>3.3</td>
+      <td>1.83</td>
+      <td>3.40</td>
+      <td>3.25</td>
+      <td>2.00</td>
+      <td>3.30</td>
+      <td>3.3</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <th>520</th>
+      <td>521</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2010/2011</td>
+      <td>1</td>
+      <td>2010-07-31 00:00:00</td>
+      <td>838473</td>
+      <td>8635</td>
+      <td>6351</td>
+      <td>4</td>
+      <td>...</td>
+      <td>13.00</td>
+      <td>1.17</td>
+      <td>5.5</td>
+      <td>13.00</td>
+      <td>1.20</td>
+      <td>6.00</td>
+      <td>10.00</td>
+      <td>1.17</td>
+      <td>6.0</td>
+      <td>13.00</td>
+    </tr>
+    <tr>
+      <th>523</th>
+      <td>524</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2010/2011</td>
+      <td>1</td>
+      <td>2010-08-01 00:00:00</td>
+      <td>838476</td>
+      <td>9987</td>
+      <td>9993</td>
+      <td>2</td>
+      <td>...</td>
+      <td>3.80</td>
+      <td>1.80</td>
+      <td>3.3</td>
+      <td>3.80</td>
+      <td>1.95</td>
+      <td>3.25</td>
+      <td>3.50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>524</th>
+      <td>525</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2010/2011</td>
+      <td>10</td>
+      <td>2010-10-03 00:00:00</td>
+      <td>838581</td>
+      <td>8342</td>
+      <td>9991</td>
+      <td>3</td>
+      <td>...</td>
+      <td>3.60</td>
+      <td>2.00</td>
+      <td>3.5</td>
+      <td>3.60</td>
+      <td>2.00</td>
+      <td>3.25</td>
+      <td>3.40</td>
+      <td>2.00</td>
+      <td>3.3</td>
+      <td>3.25</td>
+    </tr>
+    <tr>
+      <th>525</th>
+      <td>526</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2010/2011</td>
+      <td>10</td>
+      <td>2010-10-03 00:00:00</td>
+      <td>838582</td>
+      <td>9985</td>
+      <td>8635</td>
+      <td>5</td>
+      <td>...</td>
+      <td>2.50</td>
+      <td>3.00</td>
+      <td>3.3</td>
+      <td>2.38</td>
+      <td>2.80</td>
+      <td>3.20</td>
+      <td>2.35</td>
+      <td>2.60</td>
+      <td>3.2</td>
+      <td>2.40</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 115 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取2010/2011赛季所有参赛球员</span>
 <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">pre</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="n">player_list</span><span class="p">:</span>
@@ -12591,13 +13817,178 @@ after : 0
     <span class="n">df_tmp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">]</span>
     <span class="n">df_match_players</span> <span class="o">=</span> <span class="n">df_match_players</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">)</span>
 
-<span class="c1"># Drop duplicates</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_match_players</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
-<span class="n">df_match_players</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_match_players</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
-<span class="n">df_match_players</span><span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_match_players</span><span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df_match_players</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 
-<span class="c1"># Get all player&#39;s attributes in df_match_players</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[145]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>player</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>517</th>
+      <td>37971.0</td>
+    </tr>
+    <tr>
+      <th>520</th>
+      <td>38391.0</td>
+    </tr>
+    <tr>
+      <th>523</th>
+      <td>170323.0</td>
+    </tr>
+    <tr>
+      <th>524</th>
+      <td>208699.0</td>
+    </tr>
+    <tr>
+      <th>525</th>
+      <td>38797.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[146]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 去除重复数据, 提高后面的筛查效率</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;去除重复数据前的计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_match_players</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="n">df_match_players</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;去除重复数据后的计数 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_match_players</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<span class="n">df_match_players</span><span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_match_players</span><span class="p">[</span><span class="s1">&#39;player&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df_match_players</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>去除重复数据前的计数 : player    61916
+dtype: int64
+去除重复数据后的计数 : player    3915
+dtype: int64
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[146]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>player</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>517</th>
+      <td>37971</td>
+    </tr>
+    <tr>
+      <th>520</th>
+      <td>38391</td>
+    </tr>
+    <tr>
+      <th>523</th>
+      <td>170323</td>
+    </tr>
+    <tr>
+      <th>524</th>
+      <td>208699</td>
+    </tr>
+    <tr>
+      <th>525</th>
+      <td>38797</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 从df_match_players中获取2010/2011赛季中相关player的各个属性值</span>
 <span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
 <span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -12615,22 +14006,7 @@ after : 0
                                       <span class="p">(</span><span class="n">df_player_attributes</span><span class="p">[</span> <span class="s1">&#39;date&#39;</span> <span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">)]</span>
     <span class="n">df_match_player_attributes</span> <span class="o">=</span> <span class="n">df_match_player_attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">)</span>
     
-<span class="c1"># Plot overall_rating with count</span>
-<span class="n">df_rating</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_match_player_attributes</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">])</span>
-<span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-<span class="n">df_rating</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">count_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">rating</span> <span class="ow">in</span> <span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]:</span>
-    <span class="n">count_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="s1">&#39;overall_rating&#39;</span> <span class="p">]</span> <span class="o">==</span> \
-                                                     <span class="n">rating</span> <span class="p">][</span><span class="s1">&#39;player_api_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
-        
-<span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">count_list</span>
-<span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df_rating</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;overall_rating&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Overall Rating Count&#39;</span><span class="p">)</span>
-
-<span class="c1"># 通过图形分析, 不难发现, 球员评分普遍在70-75之间, 在这里我们需要找到最右侧的最高分.</span>
-    
+<span class="n">df_match_player_attributes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12643,27 +14019,222 @@ after : 0
 
 <div class="output_area">
 
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[147]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>before : player    61916
-dtype: int64
-after : player    3915
-dtype: int64
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>player_fifa_api_id</th>
+      <th>player_api_id</th>
+      <th>date</th>
+      <th>overall_rating</th>
+      <th>potential</th>
+      <th>preferred_foot</th>
+      <th>attacking_work_rate</th>
+      <th>defensive_work_rate</th>
+      <th>crossing</th>
+      <th>...</th>
+      <th>vision</th>
+      <th>penalties</th>
+      <th>marking</th>
+      <th>standing_tackle</th>
+      <th>sliding_tackle</th>
+      <th>gk_diving</th>
+      <th>gk_handling</th>
+      <th>gk_kicking</th>
+      <th>gk_positioning</th>
+      <th>gk_reflexes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>65313</th>
+      <td>65314</td>
+      <td>162215</td>
+      <td>37971</td>
+      <td>2011-02-22</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>31.0</td>
+      <td>15.0</td>
+      <td>10.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>70.0</td>
+      <td>68.0</td>
+      <td>72.0</td>
+      <td>65.0</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <th>65314</th>
+      <td>65315</td>
+      <td>162215</td>
+      <td>37971</td>
+      <td>2010-08-30</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>59.0</td>
+      <td>15.0</td>
+      <td>22.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>70.0</td>
+      <td>68.0</td>
+      <td>72.0</td>
+      <td>65.0</td>
+      <td>73.0</td>
+    </tr>
+    <tr>
+      <th>65315</th>
+      <td>65316</td>
+      <td>162215</td>
+      <td>37971</td>
+      <td>2010-02-22</td>
+      <td>67.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>21.0</td>
+      <td>...</td>
+      <td>59.0</td>
+      <td>59.0</td>
+      <td>22.0</td>
+      <td>21.0</td>
+      <td>10.0</td>
+      <td>70.0</td>
+      <td>65.0</td>
+      <td>67.0</td>
+      <td>63.0</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <th>65313</th>
+      <td>65314</td>
+      <td>162215</td>
+      <td>37971</td>
+      <td>2011-02-22</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>31.0</td>
+      <td>15.0</td>
+      <td>10.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>70.0</td>
+      <td>68.0</td>
+      <td>72.0</td>
+      <td>65.0</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <th>65314</th>
+      <td>65315</td>
+      <td>162215</td>
+      <td>37971</td>
+      <td>2010-08-30</td>
+      <td>68.0</td>
+      <td>70.0</td>
+      <td>right</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>19.0</td>
+      <td>...</td>
+      <td>59.0</td>
+      <td>15.0</td>
+      <td>22.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>70.0</td>
+      <td>68.0</td>
+      <td>72.0</td>
+      <td>65.0</td>
+      <td>73.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 42 columns</p>
 </div>
 </div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 图形描述(总体评分/评分计数)</span>
+<span class="n">df_rating</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_match_player_attributes</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">])</span>
+<span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_rating</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">count_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">rating</span> <span class="ow">in</span> <span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]:</span>
+    <span class="n">count_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="s1">&#39;overall_rating&#39;</span> <span class="p">]</span> <span class="o">==</span> \
+                                                     <span class="n">rating</span> <span class="p">][</span><span class="s1">&#39;player_api_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+        
+<span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">count_list</span>
+<span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_rating</span><span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df_rating</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;overall_rating&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Overall Rating Count&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[295]:</div>
+<div class="prompt output_prompt">Out[148]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x114fbeb38&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10e940dd8&gt;</pre>
 </div>
 
 </div>
@@ -12856,21 +14427,80 @@ Lo9ZfzlAmJlZLo9iMjOzXA4QZmaWywHCzMxyOUCYmVmu/waxH1P7RcEfawAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[296]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get max overall_rating data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 通过图形分析, 不难发现, 球员评分普遍在70-75之间, 在这里我们需要找到最右侧的最高分.</span>
+<span class="c1"># 获取最大评分值</span>
 <span class="n">df_max_overall_rating</span> <span class="o">=</span> <span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="s1">&#39;overall_rating&#39;</span> <span class="p">]</span> <span class="o">==</span> \
                                                        <span class="n">df_match_player_attributes</span><span class="p">[</span> <span class="s1">&#39;overall_rating&#39;</span> <span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="p">]</span>
 <span class="n">max_rating</span> <span class="o">=</span> <span class="n">df_max_overall_rating</span><span class="o">.</span><span class="n">overall_rating</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max_overall_rating : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_rating</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最大评分值 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_rating</span><span class="p">))</span>
+</pre></div>
 
-<span class="c1"># Get max_overall_rating&#39;s player_api_id</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>最大评分值 : 94.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取最大评分值的player_api_id, 并通过id查找到相应的名字</span>
 <span class="n">max_player_api_id</span> <span class="o">=</span> <span class="n">df_max_overall_rating</span><span class="o">.</span><span class="n">player_api_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">max_player_name</span> <span class="o">=</span> <span class="n">df_player</span><span class="p">[</span> <span class="n">df_player</span><span class="p">[</span> <span class="s1">&#39;player_api_id&#39;</span> <span class="p">]</span> <span class="o">==</span> <span class="n">max_player_api_id</span> <span class="p">]</span><span class="o">.</span><span class="n">player_name</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max_player_name : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_player_name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;最高评分球员 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_player_name</span><span class="p">))</span>
+</pre></div>
 
-<span class="c1"># Get max_overall_rating player&#39;s team_api_id</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>最高评分球员 : Lionel Messi
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 获取Lionel Messi的team_api_id(可能出现在主场/客场)</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">max_team_api_id</span> <span class="o">=</span> <span class="n">df_match_2010to2011</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;home_player_1 == </span><span class="si">{}</span><span class="s1"> or </span><span class="se">\</span>
 <span class="s1">                            home_player_2 == </span><span class="si">{}</span><span class="s1"> or </span><span class="se">\</span>
@@ -12918,17 +14548,75 @@ Lo9ZfzlAmJlZLo9iMjOzXA4QZmaWywHCzMxyOUCYmVmu/waxH1P7RcEfawAAAABJRU5ErkJggg==
                                       <span class="n">max_player_api_id</span><span class="p">,</span> \
                                       <span class="n">max_player_api_id</span>
                         <span class="p">))</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">away_team_api_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    
+
 <span class="c1"># df_max_team_api_id.head()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max_team_api_id : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_team_api_id</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;此球员所在球队的team_api_id : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_team_api_id</span><span class="p">))</span>
+</pre></div>
 
-<span class="c1"># Get team long name</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>此球员所在球队的team_api_id : 8634
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 通过team_api_id获取到队名</span>
 <span class="n">max_team_name</span> <span class="o">=</span> <span class="n">df_team</span><span class="p">[</span> <span class="n">df_team</span><span class="p">[</span> <span class="s1">&#39;team_api_id&#39;</span> <span class="p">]</span> <span class="o">==</span> <span class="n">max_team_api_id</span> <span class="p">]</span><span class="o">.</span><span class="n">team_long_name</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;max_team_name : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_team_name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;球队名 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_team_name</span><span class="p">))</span>
+</pre></div>
 
-<span class="c1"># print result</span>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>球队名 : FC Barcelona
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[153]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 汇总结果, 输出</span>
 <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_player_name</span><span class="p">,</span> <span class="n">max_rating</span><span class="p">,</span> <span class="n">max_team_name</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Player</span><span class="se">\t\t</span><span class="s1">Rating</span><span class="se">\t</span><span class="s1">Team</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;球员</span><span class="se">\t\t</span><span class="s1">评分</span><span class="se">\t</span><span class="s1">球队</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 <span class="c1">###############################################################</span>
 </pre></div>
 
@@ -12946,11 +14634,7 @@ Lo9ZfzlAmJlZLo9iMjOzXA4QZmaWywHCzMxyOUCYmVmu/waxH1P7RcEfawAAAABJRU5ErkJggg==
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>max_overall_rating : 94.0
-max_player_name : Lionel Messi
-max_team_api_id : 8634
-max_team_name : FC Barcelona
-Player		Rating	Team
+<pre>球员		评分	球队
 Lionel Messi	94.0	FC Barcelona</pre>
 </div>
 </div>
@@ -12969,7 +14653,7 @@ Lionel Messi	94.0	FC Barcelona</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[297]:</div>
+<div class="prompt input_prompt">In&nbsp;[154]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###############################################################</span>
@@ -12978,7 +14662,6 @@ Lionel Messi	94.0	FC Barcelona</pre>
                                             <span class="n">max_player_api_id</span> <span class="p">]</span>
 <span class="n">df_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_messi_rating</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;overall_rating&#39;</span><span class="p">])</span>
 <span class="n">df_plot</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="c1">###############################################################</span>
 </pre></div>
 
 </div>
@@ -12991,13 +14674,13 @@ Lionel Messi	94.0	FC Barcelona</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[297]:</div>
+<div class="prompt output_prompt">Out[154]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x13ec915c0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x109f4ee48&gt;</pre>
 </div>
 
 </div>
@@ -13186,6 +14869,701 @@ wbMAAAAASUVORK5CYII=
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_messi_rating</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;crossing&#39;</span><span class="p">])</span>
+<span class="n">df_plot</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[155]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10e50c748&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+6MYYkyL+Hw/iIogLPjXUAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 射门质量与时间关系统计</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_messi_rating</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;finishing&#39;</span><span class="p">])</span>
+<span class="n">df_plot</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[156]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10bcce160&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 控球质量与时间关系统计</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_messi_rating</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;ball_control&#39;</span><span class="p">])</span>
+<span class="n">df_plot</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1">###############################################################</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[157]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10bc9a438&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13196,14 +15574,14 @@ wbMAAAAASUVORK5CYII=
 <p>如需将报告导出到工作区，应运行下面的代码框。如果正确，会返回代码 0，工作区目录下会生成 .html 文件（单击左上角的 jupyter 图标）。也可以通过 <strong>文件</strong> &gt; <strong>下载为</strong> 子菜单下载 html 报告，然后手动上传到工作区目录。完成之后，可以单击右下角的“提交项目”，提交你的项目。恭喜！</p>
 </blockquote>
 <p>2010/2011赛季, 评分表现最佳的球员为FC Barcelona队的Lionel Messi, 评分为94.
-此运动员的巅峰时期为2012-2014年, 最佳评分为94.</p>
+此运动员的巅峰时期为2012-2014年, 最佳评分为94, 并且从2011年开始, 盘带, 控球, 射门质量得到了大幅的提升.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[298]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -13220,7 +15598,7 @@ wbMAAAAASUVORK5CYII=
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[298]:</div>
+<div class="prompt output_prompt">Out[158]:</div>
 
 
 
